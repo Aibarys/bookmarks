@@ -26,15 +26,18 @@ SECRET_KEY = 'django-insecure-%gp4x15s83tj)*5@)76t6m4_j9=#)rprke9&x3z*l$0vuen3^o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mystart.kz', 'localhost', '127.0.0.1']
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social_core.backends.google.GoogleOAuth2',
 ]
 
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'XXX'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'XXX'
 
 # Application definition
 
@@ -46,6 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'images.apps.ImagesConfig',
 ]
 
 MIDDLEWARE = [
